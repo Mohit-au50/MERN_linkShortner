@@ -5,22 +5,26 @@ const LinkSchema = new Schema(
   {
     linkAlias: {
       type: String,
-      required: true,
     },
     originalLink: {
       type: String,
       required: true,
     },
-    shortenedLink: {
+    domain: {
       type: String,
       required: true,
-    },
-    visitCount: {
-      type: Number,
     },
   },
   { timestamps: true }
 );
+
+// define pre-svae middleware if you wish to do something before the documnet is created
+LinkSchema.pre("save", function (next) {
+  if (!this.linkAlias) {
+    this.linkAlias = this._id.toString().slice(-5);
+  }
+  next();
+});
 
 const Link = model("Links", LinkSchema);
 module.exports = Link;
