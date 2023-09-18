@@ -29,38 +29,62 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-screen grid place-items-center bg-gray-700">
+    <main className="relative w-full h-screen container mx-auto flex flex-col justify-between items-center">
+      <header className="h-20 w-full">
+        <nav className="flex items-center h-full px-4 sm:px-7">
+          <h1 className="font-bold tracking-wide text-2xl sm:text-3xl">
+            Shorty
+          </h1>
+        </nav>
+      </header>
       {copied && (
         <>
-          <p className="w-full h-[3rem] flex items-center justify-start bg-green-200 text-green-800 font-semibold absolute top-0 px-7">
+          <p className="w-full h-12 flex items-center px-4 sm:px-7 bg-green-200 text-green-800 font-semibold absolute top-20">
             Copied to clipboard
           </p>
         </>
       )}
-
-      <div className="w-[300px]">
-        <form onSubmit={handleSubmit} className=" w-[300px] flex gap-4">
-          <input
-            type="text"
-            className="outline-0 border-0 rounded w-full h-[3rem] px-3"
-            placeholder="Past your link"
-            onChange={(e) => setLink(e.target.value)}
-          />
-          <button className="px-5 py-2 rounded bg-teal-600">send</button>
-        </form>
-        {shortLink && (
-          <>
-            <CopyToClipboard
-              text={shortLink}
-              onCopy={handleOnCopy}
-              className="hover:bg-green-200 w-full h-[3rem] rounded mt-5 bg-white flex items-center px-3"
-            >
-              <p>{shortLink}</p>
-            </CopyToClipboard>
-          </>
-        )}
+      <div className="w-full h-full grid place-items-center p-4">
+        <div className="w-full max-w-md">
+          <form onSubmit={handleSubmit} className="flex gap-4">
+            <input
+              type="text"
+              className="outline-0 border-2 rounded w-full h-12 px-3"
+              placeholder="Past your link"
+              onChange={(e) => setLink(e.target.value)}
+            />
+            <button className="px-5 py-2 rounded bg-teal-600">send</button>
+          </form>
+          {shortLink && (
+            <>
+              <CopyToClipboard
+                text={shortLink}
+                onCopy={handleOnCopy}
+                className="hover:bg-green-200 w-full h-12 border-2 hover:border-green-200 rounded mt-5 bg-white flex items-center px-3"
+              >
+                <p>{shortLink}</p>
+              </CopyToClipboard>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+
+      <footer className="h-20 w-full">
+        <nav className="flex items-center justify-center h-full px-4 sm:px-7">
+          <h1 className="font-bold tracking-wide">
+            &lt;/&gt; by
+            <a
+              href="http://github.com/Mohit-au50"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1"
+            >
+              Mohit
+            </a>
+          </h1>
+        </nav>
+      </footer>
+    </main>
   );
 };
 
