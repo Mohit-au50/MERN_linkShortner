@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://link-shortner-omega.vercel.app/",
   })
 );
 
@@ -26,7 +26,7 @@ app.post("/generate-link", async (req, res) => {
   try {
     const { link } = req.body;
 
-    const domain = "http://localhost:8080/";
+    const domain = "https://link-shortner-omega.vercel.app/";
 
     const newLink = new Link({
       originalLink: link,
