@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "https://link-short-payw.onrender.com";
 
 const App = () => {
   const [link, setLink] = useState("");
