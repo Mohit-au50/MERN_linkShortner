@@ -51,7 +51,7 @@ const App = () => {
               <input
                 type="text"
                 className="outline-0 border-2 rounded w-full h-12 px-3 placeholder:text-orange-700"
-                placeholder="Past your link"
+                placeholder="Paste your link"
                 onChange={(e) => setLink(e.target.value)}
               />
               <button className="px-5 py-2 rounded bg-orange-700 text-orange-200 uppercase tracking-wider font-semibold">
