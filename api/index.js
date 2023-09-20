@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://link-shortner-omega.vercel.app/",
+    origin: "https://link-shortner-omega.vercel.app",
   })
 );
 
