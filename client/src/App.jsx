@@ -29,10 +29,10 @@ const App = () => {
   };
 
   return (
-    <main className="relative w-full h-screen container mx-auto flex flex-col justify-between items-center">
+    <main className="relative w-full h-screen bg-orange-300 flex flex-col justify-between items-center">
       <header className="h-20 w-full">
-        <nav className="flex items-center h-full px-4 sm:px-7">
-          <h1 className="font-bold tracking-wide text-2xl sm:text-3xl">
+        <nav className="flex items-center h-full px-4 sm:px-7 container mx-auto">
+          <h1 className="font-bold tracking-wide text-2xl sm:text-3xl text-orange-700">
             Shorty
           </h1>
         </nav>
@@ -44,34 +44,38 @@ const App = () => {
           </p>
         </>
       )}
-      <div className="w-full h-full grid place-items-center p-4">
-        <div className="w-full max-w-md">
-          <form onSubmit={handleSubmit} className="flex gap-4">
-            <input
-              type="text"
-              className="outline-0 border-2 rounded w-full h-12 px-3"
-              placeholder="Past your link"
-              onChange={(e) => setLink(e.target.value)}
-            />
-            <button className="px-5 py-2 rounded bg-teal-600">send</button>
-          </form>
-          {shortLink && (
-            <>
-              <CopyToClipboard
-                text={shortLink}
-                onCopy={handleOnCopy}
-                className="hover:bg-green-200 w-full h-12 border-2 hover:border-green-200 rounded mt-5 bg-white flex items-center px-3"
-              >
-                <p>{shortLink}</p>
-              </CopyToClipboard>
-            </>
-          )}
+      <div className="w-full h-full p-4">
+        <div className="w-full h-full container mx-auto grid place-items-center">
+          <div className="max-w-md w-full">
+            <form onSubmit={handleSubmit} className="flex gap-5">
+              <input
+                type="text"
+                className="outline-0 border-2 rounded w-full h-12 px-3 placeholder:text-orange-700"
+                placeholder="Past your link"
+                onChange={(e) => setLink(e.target.value)}
+              />
+              <button className="px-5 py-2 rounded bg-orange-700 text-orange-200 uppercase tracking-wider font-semibold">
+                send
+              </button>
+            </form>
+            {shortLink && (
+              <>
+                <CopyToClipboard
+                  text={shortLink}
+                  onCopy={handleOnCopy}
+                  className="hover:bg-green-200 w-full h-12 border-2 hover:border-green-200 rounded mt-5 bg-white text-orange-700 flex items-center px-3"
+                >
+                  <p>{shortLink}</p>
+                </CopyToClipboard>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
       <footer className="h-20 w-full">
         <nav className="flex items-center justify-center h-full px-4 sm:px-7">
-          <h1 className="font-bold tracking-wide">
+          <h1 className="font-bold tracking-wide text-orange-700">
             &lt;/&gt; by
             <a
               href="http://github.com/Mohit-au50"
