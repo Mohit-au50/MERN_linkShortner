@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .wrapper {
+    @apply container mx-auto max-w-[1200px] p-4 sm:px-10 xl:px-0;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
